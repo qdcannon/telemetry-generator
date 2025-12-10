@@ -1,7 +1,8 @@
 # Generate workable requirements.txt from Poetry dependencies 
 FROM python:3-slim as requirements 
 
-RUN apt-get install -y --no-install-recommends build-essential gcc 
+#RUN apt-get install -y --no-install-recommends build-essential gcc 
+
 RUN python -m pip install --no-cache-dir --upgrade poetry 
 
 COPY pyproject.toml poetry.lock ./ 
