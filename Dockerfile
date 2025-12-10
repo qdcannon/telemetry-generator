@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip
 
 
-RUN python -m pip install --no-cache-dir --upgrade poetry 
+RUN python3 -m pip install --no-cache-dir --upgrade poetry 
 
 WORKDIR /app
 
@@ -24,6 +24,6 @@ RUN poetry export -f requirements.txt --without-hashes -o /src/requirements.txt
 #​ Install requirements 
 COPY ./src/telemetry_generator .
 
-RUN pip3 install --no-cache-dir --user -r requirements.txt
+RUN pip install --no-cache-dir --user -r requirements.txt
 
 CMD ["python3", "main.py"]
