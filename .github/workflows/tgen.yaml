@@ -32,7 +32,7 @@ jobs:
         
       - name: Update image tag in Helm chart
         run: |
-          sed -i "s/^  tag: .*/  tag: \"${{ github.sha }}\"/" charts/values.yaml
+          sed -i "s/^  tag: .*/  tag: \"${{ github.sha }}\"/" telemetry-generator/values.yaml
 
       - name: Commit updated tag
         run: |
