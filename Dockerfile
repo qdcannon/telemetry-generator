@@ -11,12 +11,14 @@ RUN apt-get update && apt-get install -y \
 
 RUN python -m pip install --no-cache-dir --upgrade poetry 
 
+WORKDIR /app
+
 COPY pyproject.toml poetry.lock ./ 
 RUN poetry export -f requirements.txt --without-hashes -o /src/requirements.txt 
 
 #​ Switching to non-root user appuser 
 #RUN adduser appuser 
-WORKDIR /app
+#WORKDIR /app
 #USER appuser:appuser 
 
 #​ Install requirements 
