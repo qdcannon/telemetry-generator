@@ -24,6 +24,6 @@ RUN poetry export -f requirements.txt --without-hashes -o /src/requirements.txt
 #​ Install requirements 
 COPY ./src/telemetry_generator .
 
-RUN pip install --no-cache-dir --user -r requirements.txt
+RUN pip3 install --no-cache-dir --user -r requirements.txt
 
 CMD ["python3", "main.py"]
