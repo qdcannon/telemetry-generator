@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip
 
-    
+
 RUN python -m pip install --no-cache-dir --upgrade poetry 
 
 COPY pyproject.toml poetry.lock ./ 
@@ -20,9 +20,8 @@ WORKDIR /app
 #USER appuser:appuser 
 
 #​ Install requirements 
-COPY /src/requirements.txt . 
-RUN pip install --no-cache-dir --user -r requirements.txt
-
 COPY ./src/telemetry_generator .
+
+RUN pip install --no-cache-dir --user -r requirements.txt
 
 CMD ["python3", "main.py"]
