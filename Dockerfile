@@ -14,8 +14,8 @@ RUN python3 -m pip install --no-cache-dir --upgrade poetry
 WORKDIR /app
 
 #When I updgrade the streamer with PyPl modules uncomment the next two lines
-#COPY pyproject.toml poetry.lock ./ 
-#RUN poetry export -f requirements.txt --without-hashes -o /src/requirements.txt 
+COPY pyproject.toml poetry.lock ./ 
+RUN poetry export -f requirements.txt --without-hashes -o /src/requirements.txt 
 
 #​ Switching to non-root user appuser 
 #RUN adduser appuser 
