@@ -2,7 +2,8 @@ import random
 import json
 import time
 from vector_class import Vector
-
+import paho.mqtt.client as mqtt
+from typing import Dict
 
 def update_ss_telem(): 
 # Simulated subsystem telemetry
@@ -26,4 +27,6 @@ def packetize_telemetry(position: Vector, velocity: Vector, voltage: float, temp
     }
 
     # Emit telemetry as JSON (stdout)
-    print(json.dumps(telemetry_packet))
+    #print(json.dumps(telemetry_packet))
+
+    return telemetry_packet
