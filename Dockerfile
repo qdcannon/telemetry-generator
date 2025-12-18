@@ -18,17 +18,11 @@ WORKDIR /app
 
 #When I updgrade the streamer with PyPl modules uncomment the next two lines
 COPY pyproject.toml poetry.lock .
-RUN poetry export -f requirements.txt --without-hashes -o /app/requirements.txt 
-
-#​ Switching to non-root user appuser 
-#RUN adduser appuser 
-#WORKDIR /app
-#USER appuser:appuser 
 
 #​ Install requirements 
 COPY ./src/telemetry_generator .
+RUN poetry export -f requirements.txt --without-hashes -o requirements.txt 
 
-
-RUN pip install --no-cache-dir --user -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python3", "main.py"]
