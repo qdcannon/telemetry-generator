@@ -9,7 +9,10 @@ RUN apt-get update && apt-get install -y \
     python3-pip
 
 
-RUN python3 -m pip install --no-cache-dir --upgrade poetry 
+RUN python3 -m pip install --no-cache-dir --upgrade poetry poetry-plugin-export
+
+# Disable venvs inside container
+RUN poetry config virtualenvs.create false
 
 WORKDIR /app
 
