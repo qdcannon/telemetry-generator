@@ -28,6 +28,15 @@ jobs:
           python-version: '3.x' # Specify the Python version you want to use (e.g., '3.9', '3.10', '3.11')
 
       - name: Install dependencies (optional)
+        run: python3 -m pip install --no-cache-dir --upgrade poetry
+        
+      - name: poetry-plugin-export
+        run: poetry self add poetry-plugin-export
+         
+      - name: convert poetry to requirements
+        run: poetry export -f requirements.txt --without-hashes -o requirements.txt 
+
+      - name: Install dependencies (optional)
         run: pip install -r requirements.txt # Installs packages listed in requirements.txt
         
       - name: Update image tag in Helm chart
