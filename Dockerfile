@@ -25,6 +25,8 @@ COPY pyproject.toml poetry.lock .
 COPY ./src/telemetry_generator .
 RUN poetry export -f requirements.txt --without-hashes -o requirements.txt 
 
+RUN cat requirements.txt
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python3", "main.py"]

@@ -2,7 +2,6 @@ import random
 import json
 import time
 from vector_class import Vector
-import paho.mqtt.client as mqtt
 from typing import Dict
 
 def update_ss_telem(): 
