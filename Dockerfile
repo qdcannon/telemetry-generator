@@ -1,5 +1,5 @@
 # Generate workable requirements.txt from Poetry dependencies 
-FROM ubuntu:22.04
+FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y \
     --no-install-recommends \
